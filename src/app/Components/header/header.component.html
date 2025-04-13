@@ -1,1 +1,17 @@
-<p>header works!</p>
+<header class="header">
+    <div class="container">
+      <a class="logo">ITStepBooking</a>
+      <nav [class.active]="isMenuOpen">
+        <ul>
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/hotels">Hotels</a></li>
+          <li><a routerLink="/rooms">Rooms</a></li>
+        </ul>
+      </nav>
+      <div class="burger" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
