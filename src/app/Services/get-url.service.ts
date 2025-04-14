@@ -22,4 +22,7 @@ export class UserService {
   getRoomsById(id : number){
     return this.api.getById('https://hotelbooking.stepprojects.ge/api/Rooms/GetRooms/', id)
   }
+  getRoomsType(){
+    return this.api.getAll('https://hotelbooking.stepprojects.ge/api/Rooms/GetRoomTypes')
+  }
 }

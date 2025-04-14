@@ -1,1 +1,4 @@
-<p>hotels works!</p>
+<div class="hotel" *ngFor="let hotel of hotelArr">
+    {{hotel.name}}
+    <img [src]="hotel.featuredImage" class="card-img-top" alt="...">
+</div>

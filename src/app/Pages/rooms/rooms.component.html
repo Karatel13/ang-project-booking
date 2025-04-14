@@ -1,1 +1,11 @@
-<p>rooms works!</p>
+<div class="roomsPage">
+    <div class="rooms" *ngFor="let room of roomsArr">
+      <img [src]="room.images?.[0]?.source" alt="Room Image">
+      <p>{{ room.name }}</p>
+      <p>{{ room.pricePerNight }} $</p>
+      <p>Maximum Guests: {{ room.maximumGuests }}</p>
+      <button (click)="goToDetails(room.id!)">Book Now</button>
+    </div>
+  </div>
+  
+  
