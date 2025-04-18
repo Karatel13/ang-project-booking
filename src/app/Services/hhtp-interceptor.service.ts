@@ -1,0 +1,31 @@
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { catchError, Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class HhtpInterceptorService implements HttpInterceptor{
+
+  constructor() { }
+  
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+      return next.handle(req).pipe(
+        catchError((error:HttpResponse<any>)=> {
+            if(error.status ==400){
+              console.log("Bad Request")
+            }
+            else if(error.status ==404) {
+              console.log("not found", error.statusText)
+            }
+            else if(error.status ==500) {
+              console.log("internal Server error", error.statusText)
+            }
+            else {
+              console.log("Unknow error", error.statusText)
+            }
+            throw error
+        })
+      )
+  }
+}

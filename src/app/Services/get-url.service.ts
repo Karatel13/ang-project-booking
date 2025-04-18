@@ -7,22 +7,23 @@ import { ApiService } from './api.service';
 export class UserService {
 
   constructor(private api : ApiService) { }
+  baseUrl = 'https://hotelbooking.stepprojects.ge/api/';
   getAllBooking(){
-    return this.api.getAll('https://hotelbooking.stepprojects.ge/api/Booking')
+    return this.api.getAll(this.baseUrl + 'Booking');
   }
   getAllHotels(){
-    return this.api.getAll('https://hotelbooking.stepprojects.ge/api/Hotels/GetAll')
+    return this.api.getAll(this.baseUrl +'Hotels/GetAll')
   }
   getAllRooms(){
-    return this.api.getAll('https://hotelbooking.stepprojects.ge/api/Rooms/GetAll')
+    return this.api.getAll(this.baseUrl +'Rooms/GetAll')
   }
   getHotelById(id : number){
-    return this.api.getById('https://hotelbooking.stepprojects.ge/api/Hotels/GetHotel/', id)
+    return this.api.getById(this.baseUrl +'Hotels/GetHotel/', id)
   }
   getRoomsById(id : number){
-    return this.api.getById('https://hotelbooking.stepprojects.ge/api/Rooms/GetRooms/', id)
+    return this.api.getById(this.baseUrl +'Rooms/GetRooms/', id)
   }
   getRoomsType(){
-    return this.api.getAll('https://hotelbooking.stepprojects.ge/api/Rooms/GetRoomTypes')
+    return this.api.getAll(this.baseUrl +'Rooms/GetRoomTypes')
   }
 }
