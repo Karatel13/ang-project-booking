@@ -3,11 +3,12 @@ import { UserService } from '../../Services/get-url.service';
 import { Hotels } from '../../Models/hotels';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ErrorDialogComponent } from '../../Components/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-hotels',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ErrorDialogComponent],
   templateUrl: './hotels.component.html',
   styleUrl: './hotels.component.scss'
 })

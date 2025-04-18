@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Rooms } from '../../Models/rooms';
 import { Router } from '@angular/router';
+import { ErrorDialogComponent } from "../../Components/error-dialog/error-dialog.component";
 
 
 
 @Component({
   selector: 'app-rooms',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ErrorDialogComponent],
   templateUrl: './rooms.component.html',
   styleUrl: './rooms.component.scss'
 })
