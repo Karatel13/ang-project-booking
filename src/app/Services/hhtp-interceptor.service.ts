@@ -1,13 +1,14 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
+import { ErrorhandlerService } from './errorhandler.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HhtpInterceptorService implements HttpInterceptor{
 
-  constructor() { }
+  constructor(private errorhandler : ErrorhandlerService) { }
   
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       return next.handle(req).pipe(
@@ -24,6 +25,8 @@ export class HhtpInterceptorService implements HttpInterceptor{
             else {
               console.log("Unknow error", error.statusText)
             }
+            this.errorhandler.showDialog(error.statusText)
+
             throw error
         })
       )

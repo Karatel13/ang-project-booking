@@ -10,20 +10,20 @@ import { CommonModule } from '@angular/common';
   styleUrl: './error-dialog.component.scss'
 })
 export class ErrorDialogComponent {
-  constructor(private erroHandler : ErrorhandlerService){
-    this.erroHandler.dialogState.subscribe(
+  constructor(private errorHandler : ErrorhandlerService){
+    this.errorHandler.dialogState.subscribe(
       state => {
         this.showDialog = state.show
-        this.erroMessage = state.message
+        this.errorMessage = state.message
       }
     )
 }
 
-erroMessage =""
+errorMessage =""
 showDialog :boolean = false
 closeDialog(){
  this.showDialog = false
- this.erroHandler.hideDialog()
+ this.errorHandler.hideDialog()
  
 }
 

@@ -3,7 +3,7 @@
       <img [src]="room.images?.[0]?.source" alt="Room Image">
       <p>{{ room.name }}</p>
       <p>{{ room.pricePerNight }} $</p>
-      <p>Maximum Guests: {{ room.maximumGuests }}</p>
+      <p>MaxGuests: {{ room.maximumGuests }}</p>
       <button (click)="goToDetails(room.id!)">Book Now</button>
     </div>
   </div>
