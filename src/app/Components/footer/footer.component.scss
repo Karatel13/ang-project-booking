@@ -37,6 +37,7 @@ footer {
           text-decoration: none;
           color: white;
           transition: color 0.3s;
+          font-size: 1.5rem;
   
           &:hover {
             color: #60a5fa;
@@ -59,7 +60,7 @@ footer {
   
       .footer-links {
         flex-direction: column;
-        gap: 1rem;
+        font-size: 1.5rem;
       }
     }
   }
