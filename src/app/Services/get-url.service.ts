@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import { Rooms } from '../Models/rooms';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,8 @@ export class UserService {
   getHotelById(id : number){
     return this.api.getById(this.baseUrl +'Hotels/GetHotel/', id)
   }
-  getRoomsById(id : number){
-    return this.api.getById(this.baseUrl +'Rooms/GetRooms/', id)
+  getRoomsById(id: number) {
+    return this.api.getById(this.baseUrl + 'Rooms/GetRoom', id);
   }
   getRoomsType(){
     return this.api.getAll(this.baseUrl +'Rooms/GetRoomTypes')

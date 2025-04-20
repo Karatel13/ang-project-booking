@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../Services/get-url.service';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { Rooms } from '../../Models/rooms';
 import { Router } from '@angular/router';
 import { ErrorDialogComponent } from "../../Components/error-dialog/error-dialog.component";
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -31,9 +32,7 @@ export class RoomsComponent {
     this.roomsArr = arr;
   }
   goToDetails(roomId: number) {
-    this.router.navigate(['/details', roomId]);
+    this.router.navigate(['rooms-details/', roomId]);
   }
-  
-
 
 }

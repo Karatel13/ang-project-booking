@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { ErrorComponent } from './Pages/error/error.component';
 
 export const routes: Routes = [
@@ -27,7 +28,7 @@ export const routes: Routes = [
     },
     { 
         path: 'rooms-details/:id',
-        loadComponent:() => import ('./Pages/rooms/rooms-details/rooms-details.component').then(m => m.RoomsDetailsComponent)
+        loadComponent:() => import ('./Pages/rooms/rooms-details/rooms-details.component').then(m => m.RoomDetailsComponent)
     },
     { 
         path: 'hotels-details/:id',

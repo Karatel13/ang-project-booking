@@ -1,1 +1,18 @@
-<p>rooms-details works!</p>
+<div class="room-details" *ngIf="room">
+    <h2 class="room-title">{{ room.name }}</h2>
+  
+    <div class="room-image">
+      <img [src]="room.images?.[0]?.source" alt="{{ room.name }}"
+       />
+      
+    </div>
+  
+    <div class="room-info">
+      <p>Price per night:{{ room.pricePerNight }} $</p>
+      <p>Maximum guests:{{ room.maximumGuests }}</p>
+    </div>
+  </div>
+  
+  <div *ngIf="!room">
+    <p>Loading room details...</p>
+  </div>
