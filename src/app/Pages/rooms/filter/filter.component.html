@@ -1,18 +1,18 @@
 <div class="filter">
     <label>Room Type:
-      <input type="number" [(ngModel)]="roomTypeId">
+      <input type="number" [(ngModel)]="roomTypeId" value="1" max="3" min="1">
     </label>
   
     <label>Price From:
-      <input type="number" [(ngModel)]="priceFrom">
+      <input type="number" [(ngModel)]="priceFrom" min="0">
     </label>
   
     <label>Price To:
-      <input type="number" [(ngModel)]="priceTo">
+      <input type="number" [(ngModel)]="priceTo" min="0">
     </label>
   
     <label>Maximum Guests:
-      <input type="number" [(ngModel)]="maximumGuests">
+      <input type="number" [(ngModel)]="maximumGuests" min="1" max="6">
     </label>
   
     <label>Check-In Date:
@@ -20,7 +20,7 @@
     </label>
   
     <label>Check-Out Date:
-      <input type="date" [(ngModel)]="checkOut">
+      <input type="date" [(ngModel)]="checkOut" value="">
     </label>
   
     <button (click)="applyFilters()">Apply Filters</button>

@@ -33,6 +33,6 @@ export class UserService {
     return this.api.post(`${this.baseUrl}Booking`, obj);
   }
   getRoomsWithFilter(filterParams: any): Observable<any> {
-    return this.api.post(`${this.baseUrl}/rooms/filter`, filterParams);
+    return this.api.post(`${this.baseUrl}Rooms/GetFiltered`, filterParams);
   }
 }
