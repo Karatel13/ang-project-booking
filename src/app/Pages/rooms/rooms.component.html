@@ -1,3 +1,4 @@
+<app-filter (filtersChanged)="onFiltersChanged($event)"></app-filter>
 <div class="roomsPage">
     <div class="rooms" *ngFor="let room of roomsArr">
       <img [src]="room.images?.[0]?.source" alt="Room Image">

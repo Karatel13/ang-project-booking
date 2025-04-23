@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Rooms } from '../Models/rooms';
+import { Observable } from 'rxjs';
+import { Booking } from '../Models/booking';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +28,11 @@ export class UserService {
   }
   getRoomsType(){
     return this.api.getAll(this.baseUrl +'Rooms/GetRoomTypes')
+  }
+  postBooking(obj: Booking) {
+    return this.api.post(`${this.baseUrl}Booking`, obj);
+  }
+  getRoomsWithFilter(filterParams: any): Observable<any> {
+    return this.api.post(`${this.baseUrl}/rooms/filter`, filterParams);
   }
 }

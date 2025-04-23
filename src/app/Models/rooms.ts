@@ -19,3 +19,7 @@ export class Rooms {
       roomId: number;
     }[];
   }
+export class RoomType {
+  id?: number;
+  name!: string;
+}

@@ -1,0 +1,55 @@
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+  
+    label {
+      flex: 1 1 200px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+  
+    input,
+    select {
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      margin-top: 0.3rem;
+    }
+  
+    button {
+      padding: 0.7rem 1.5rem;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #43a047;
+      }
+    }
+  }
+  
+  // Адаптивность под мобилки (ширина экрана <= 768px)
+  @media (max-width: 768px) {
+    .filter {
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+  
+    label {
+      flex: 1 1 100%; // ширина 100% для лейблов на мобильных устройствах
+    }
+  
+    button {
+      width: 100%;
+      padding: 1rem;
+    }
+  }
+  

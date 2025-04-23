@@ -5,14 +5,15 @@ import { Rooms } from '../../Models/rooms';
 import { Router } from '@angular/router';
 import { ErrorDialogComponent } from "../../Components/error-dialog/error-dialog.component";
 import { FormsModule } from '@angular/forms';
-
+import { RoomFilter } from '../../Models/roomFilter';
+import { FilterComponent } from './filter/filter.component';
 
 
 
 @Component({
   selector: 'app-rooms',
   standalone: true,
-  imports: [CommonModule, FormsModule, ErrorDialogComponent],
+  imports: [CommonModule, FormsModule, ErrorDialogComponent, FilterComponent],
   templateUrl: './rooms.component.html',
   styleUrl: './rooms.component.scss'
 })
@@ -33,6 +34,11 @@ export class RoomsComponent {
   }
   goToDetails(roomId: number) {
     this.router.navigate(['rooms-details/', roomId]);
+  }
+  onFiltersChanged(filters: RoomFilter) {
+    this.http.getRoomsWithFilter(filters).subscribe((data: Rooms[]) => {
+      this.roomsArr = data;
+    });
   }
 
 }
