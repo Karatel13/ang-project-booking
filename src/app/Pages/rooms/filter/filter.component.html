@@ -1,28 +1,33 @@
 <div class="filter">
-    <label>Room Type:
-      <input type="number" [(ngModel)]="roomTypeId" value="1" max="3" min="1">
-    </label>
+  <label>Room Type:
+    <select [(ngModel)]="roomTypeId">
+      <option [ngValue]="null" disabled hidden>-- Select Room Type --</option>
+      <option *ngFor="let type of roomTypes" [ngValue]="type.id">{{ type.name }}</option>
+    </select>
+  </label>
+
+  <label>Max Price: {{ priceTo }} $
+    <input type="range" [(ngModel)]="priceTo" min="0" max="1000" step="10">
+  </label>
+
+  <label>Guests:
+    <select [(ngModel)]="maximumGuests">
+      <option [ngValue]="null" disabled hidden>-- Select Guests --</option>
+      <option *ngFor="let g of guestsOptions" [ngValue]="g">{{ g }}</option>
+    </select>
+  </label>
+
+  <mat-form-field appearance="fill" class="filter-field">
+    <mat-label>Choose your dates</mat-label>
+    <mat-date-range-input [rangePicker]="picker" [(ngModel)]="dateRange">
+      <input matStartDate placeholder="Check-in Date" [value]="dateRange.start ? dateRange.start : ''">
+      <input matEndDate placeholder="Check-out Date" [value]="dateRange.end ? dateRange.end : ''">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
   
-    <label>Price From:
-      <input type="number" [(ngModel)]="priceFrom" min="0">
-    </label>
-  
-    <label>Price To:
-      <input type="number" [(ngModel)]="priceTo" min="0">
-    </label>
-  
-    <label>Maximum Guests:
-      <input type="number" [(ngModel)]="maximumGuests" min="1" max="6">
-    </label>
-  
-    <label>Check-In Date:
-      <input type="date" [(ngModel)]="checkIn">
-    </label>
-  
-    <label>Check-Out Date:
-      <input type="date" [(ngModel)]="checkOut" value="">
-    </label>
-  
-    <button (click)="applyFilters()">Apply Filters</button>
-  </div>
+
+  <button (click)="applyFilters()">Apply Filters</button>
+</div>
   
