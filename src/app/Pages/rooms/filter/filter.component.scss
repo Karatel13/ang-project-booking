@@ -81,73 +81,40 @@
     font-size: 1.1rem;
   }
 }
-.mat-form-field {
-  display: block;
-  width: 100%;
-  margin-bottom: 1.5rem;
-}
-
-.mat-date-range-input {
+.date-group {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
   width: 100%;
+
+  .date-label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    flex: 1 1 250px;
+
+    span {
+      margin-bottom: 0.3rem;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .date-input {
+      padding: 0.6rem 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        border-color: #3f51b5;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+      }
+    }
+  }
 }
 
-.mat-date-range-input input {
-  padding: 40px;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  width: 48%;
-  box-sizing: border-box;
-}
-
-.mat-datepicker-toggle {
-  background-color: transparent;
-  color: #4caf50;
-  border-radius: 50%;
-  padding: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-
-.mat-datepicker-toggle:hover {
-  background-color: #f0f0f0;
-}
-
-.mat-datepicker {
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.mat-calendar {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.mat-calendar-header {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.mat-calendar-body-cell {
-  font-size: 1rem;
-  color: #333;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.mat-calendar-body-cell:hover {
-  background-color: #f0f0f0;
-  transform: translateY(-3px);
-}
-
-.mat-calendar-body-selected {
-  background-color: #4caf50;
-  color: white;
-}
 
 
 
