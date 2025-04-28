@@ -25,7 +25,7 @@ export class RoomDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const id = +params['id'];
+      const id =+params['id'];
       this.userService.getRoomsById(id).subscribe((resp: any) => {
         this.room = resp;
       });

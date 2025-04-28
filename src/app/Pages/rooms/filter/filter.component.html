@@ -1,34 +1,46 @@
 <div class="filter">
-  <label>Room Type:
+  <label class="room-type">
+    <span class="label-text">Room Type <i class="fa fa-bed"></i></span>
     <select [(ngModel)]="roomTypeId">
       <option [ngValue]="null" disabled hidden>-- Select Room Type --</option>
       <option *ngFor="let type of roomTypes" [ngValue]="type.id">{{ type.name }}</option>
     </select>
   </label>
   
-  <label>Max Price: {{ priceTo }} $
+  <label class="price">
+    <span class="label-text">Max Price: {{ priceTo }}<i class="fa fa-dollar-sign"></i></span>
     <input type="range" [(ngModel)]="priceTo" min="0" max="1000" step="10">
   </label>
   
-    <label> Guests:
-      <select [(ngModel)]="maximumGuests">
-        <option [ngValue]="null" disabled hidden>-- Select Guests --</option>
-        <option *ngFor="let g of guestsOptions" [ngValue]="g">{{ g }}</option>
-      </select>
+  <label class="date-group">
+    <span class="label-text">Guests <i class="fa fa-users"></i></span>
+    <select [(ngModel)]="maximumGuests">
+      <option [ngValue]="null" disabled hidden>-- Select Guests --</option>
+      <option *ngFor="let g of guestsOptions" [ngValue]="g">{{ g }}</option>
+    </select>
+  </label>
+  
+  <div class="date-group">
+    <label class="date-label">
+      <span class="label-text">Check-In Date <i class="fa fa-calendar-plus"></i></span>
+      <input type="date" [(ngModel)]="checkIn" class="date-input" />
     </label>
   
-    <div class="date-group">
-      <label class="date-label">
-        <span>Check-In Date</span>
-        <input type="date" [(ngModel)]="checkIn" class="date-input" />
-      </label>
-    
-      <label class="date-label">
-        <span>Check-Out Date</span>
-        <input type="date" [(ngModel)]="checkOut" class="date-input" />
-      </label>
-    </div>
-  
-    <button (click)="applyFilters()">Apply Filters</button>
+    <label class="date-label">
+      <span class="label-text">Check-Out Date <i class="fa fa-calendar-minus"></i></span>
+      <input type="date" [(ngModel)]="checkOut" class="date-input" />
+    </label>
   </div>
+  
+
+  <div class="button-group">
+    <button class="primary" (click)="applyFilters()">
+      <i class="fa fa-filter"></i> Apply Filters
+    </button>
+    <button class="secondary" >
+      <i class="fa fa-undo"></i> Reset
+    </button>
+  </div>
+</div>
+
   

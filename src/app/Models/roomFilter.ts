@@ -5,5 +5,5 @@ export interface RoomFilter {
   maximumGuests: number;
   checkIn?: string;
   checkOut?: string;
-  dateRange?: { start: Date | null, end: Date | null } | null;
+  dateRange?: Date;
 }

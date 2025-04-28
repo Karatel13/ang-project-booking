@@ -1,55 +1,21 @@
-<div class="room-details">
-  <h1>{{ room.name }}</h1>
-  <p>{{ room.pricePerNight }} $ / night</p>
-  <p>Max guests: {{ room.maximumGuests }}</p>
-  <p *ngIf="room.available">Available</p>
-  <p *ngIf="!room.available">Not available</p>
-
-  <div class="gallery" *ngIf="room.images?.length">
-    <img
-      *ngFor="let img of room.images"
-      [src]="img.source"
-      [alt]="room.name"
-      class="gallery-img"
-    />
+<div class="room-details-page">
+  <div class="room-details">
+    <h1>{{ room.name }}</h1>
+    <p>{{ room.pricePerNight }} $ / night</p>
+    <p>Max guests: {{ room.maximumGuests }}</p>
+    <p *ngIf="room.available">Available</p>
+    <p *ngIf="!room.available">Not available</p>
+  
+    <div class="gallery" *ngIf="room.images?.length">
+      <img
+        *ngFor="let img of room.images"
+        [src]="img.source"
+        [alt]="room.name"
+        class="gallery-img"
+      />
+    </div>
   </div>
 </div>
-<div class="booking-form">
-  <h2>Book this room</h2>
 
-  <form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
-    <label>
-      Your Name:
-      <input type="text" [(ngModel)]="booking.customerName" name="customerName" required />
-    </label>
-
-    <label>
-      Your ID:
-      <input type="text" [(ngModel)]="booking.customerId" name="customerId" required />
-    </label>
-
-    <label>
-      Phone Number:
-      <input type="tel" [(ngModel)]="booking.customerPhone" name="customerPhone" required />
-    </label>
-
-    <label>
-      Check-In Date:
-      <input type="date" [(ngModel)]="booking.checkInDate" name="checkInDate" required />
-    </label>
-
-    <label>
-      Check-Out Date:
-      <input type="date" [(ngModel)]="booking.checkOutDate" name="checkOutDate" required />
-    </label>
-
-    <label>
-      Total Price:
-      <input type="number" [(ngModel)]="booking.totalPrice" name="totalPrice" readonly />
-    </label>
-
-    <button type="submit" [disabled]="!bookingForm.form.valid">Confirm Booking</button>
-  </form>
-</div>
 
 
