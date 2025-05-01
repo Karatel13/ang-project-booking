@@ -4,18 +4,20 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../../Services/get-url.service';
 import { Rooms } from '../../../Models/rooms';
 import { FormsModule } from '@angular/forms';
+import { BookingRoomFormComponent } from './booking-room-form/booking-room-form.component';
 
 
 
 @Component({
   selector: 'app-room-details',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, BookingRoomFormComponent,],
   templateUrl: './rooms-details.component.html',
   styleUrl: './rooms-details.component.scss'
 })
 export class RoomDetailsComponent implements OnInit {
   room: Rooms = new Rooms();
+  bookingRoomID?: number = 0;
   imageObject: Array<{ image: string; thumbImage: string }> = [];
 
   constructor(
@@ -28,6 +30,7 @@ export class RoomDetailsComponent implements OnInit {
       const id =+params['id'];
       this.userService.getRoomsById(id).subscribe((resp: any) => {
         this.room = resp;
+        this.bookingRoomID = this.room.id;
       });
     });
   }
@@ -43,10 +46,13 @@ export class RoomDetailsComponent implements OnInit {
   };
   
   submitBooking() {
-    this.booking.roomID = this.room.id ?? 0;
-  
-    console.log('Booking submitted:', this.booking);
+    if (this.room.id) {
+      this.booking.roomID = this.room.id;
+      console.log('Booking submitted:', this.booking);
+    } else {
+      console.error('Room ID is not available');
+    }
   }
-  
 }
+
 

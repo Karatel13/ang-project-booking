@@ -28,10 +28,13 @@ export class UserService {
   getRoomsType(){
     return this.api.getAll(this.baseUrl +'Rooms/GetRoomTypes')
   }
-  postBooking(obj: Booking) {
-    return this.api.post(`${this.baseUrl}Booking`, obj);
+  postBooking(obj: Booking): Observable<string> {
+    return this.api.post(`${this.baseUrl}Booking`, obj, {
+      responseType: 'text'
+    });
   }
   getRoomsWithFilter(filterParams: any): Observable<any> {
     return this.api.post(`${this.baseUrl}Rooms/GetFiltered`, filterParams);
   }
+
 }

@@ -1,4 +1,5 @@
 <div class="room-details-page">
+
   <div class="room-details">
     <h1>{{ room.name }}</h1>
     <p>{{ room.pricePerNight }} $ / night</p>
@@ -15,7 +16,9 @@
       />
     </div>
   </div>
+  <app-booking-room-form [roomId]="room.id" *ngIf="room.id"></app-booking-room-form>
 </div>
+
 
 
 

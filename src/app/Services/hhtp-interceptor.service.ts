@@ -22,6 +22,9 @@ export class HhtpInterceptorService implements HttpInterceptor{
             else if(error.status ==500) {
               console.log("internal Server error", error.statusText)
             }
+            else if(error.status ==200) {
+              console.log("ok")
+            }
             else {
               console.log("Unknow error", error.statusText)
             }
