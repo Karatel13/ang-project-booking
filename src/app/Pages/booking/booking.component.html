@@ -1,3 +1,42 @@
+<div class="bookingPage">
+<div *ngFor="let booking of bookingArr" class="bookingCard">
 
+    <div class="hotel">
+
+    </div>
+
+    <div class="room">
+        <P>{{booking.roomID}}</P>
+    </div>
+
+    <div class="customer">
+        <P>Customer Name:{{booking.customerName}}</P>
+        <P>customer Phone:{{booking.customerPhone}}</P>
+    </div>
+
+    <div class="staus">
+        <P>{{booking.isConfirmed}}</P>
+    </div>
+
+    <div class="check-in">
+        <P>{{booking.checkInDate | date:'short'}}</P>
+    </div>
+
+    <div class="check-out">
+        <P>{{booking.checkOutDate | date:'short'}}</P>
+    </div>
+
+    <div class="total-price">
+        <P>{{booking.totalPrice}}</P>
+    </div>
+
+    <div class="actions">
+        <!-- <button
+         (click)="cancelBooking(booking)"
+         >Cancel</button> -->
+    </div>
+
+</div>
+</div>
   
 

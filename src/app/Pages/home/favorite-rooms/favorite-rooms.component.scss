@@ -1,6 +1,7 @@
 .favorite-rooms {
     padding: 32px;
     text-align: center;
+    cursor: pointer;
   
     .tit {
       font-size: 32px;
@@ -14,6 +15,7 @@
     h2 {
       font-size: 32px;
       margin-bottom: 32px;
+      cursor: pointer;
     }
   
     .cards {
@@ -21,6 +23,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 24px;
+      cursor: pointer;
     }
   
     .card {
@@ -40,6 +43,7 @@
         font-size: 19px;
         margin: 16px;
         text-align: left;
+        cursor: pointer;
       }
   
       img {
@@ -47,10 +51,12 @@
         height: 270px;
         object-fit: cover;
         border-bottom: 1px solid #eee;
+        cursor: pointer;
       }
   
       .content {
         padding: 16px;
+        cursor: pointer;
       }
     }
   

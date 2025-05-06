@@ -2,7 +2,7 @@
 <div class="favorite-rooms">
     <h1 class="tit">Guests favorite rooms</h1>
     <div class="cards">
-      <div class="card" *ngFor="let room of rooms">
+      <div class="card" *ngFor="let room of rooms" (click)="navigateToRoomDetails(room.id!)">
         <h1>{{ room.name }}</h1>
         <img [src]="room.images?.[0]?.source" alt="Room Image" />
         <div class="content">

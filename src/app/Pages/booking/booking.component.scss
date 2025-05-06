@@ -1,0 +1,13 @@
+.bookingPage{
+    // display: flex;
+    // gap: 15px;
+    // justify-content: column;
+    // height: auto;
+
+    .bookingCard{
+        display: flex;
+        justify-content: column;
+        border: 1px solid gray;
+        
+    }
+}
