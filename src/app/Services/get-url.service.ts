@@ -10,6 +10,9 @@ export class UserService {
 
   constructor(private api : ApiService) { }
   baseUrl = 'https://hotelbooking.stepprojects.ge/api/';
+  deleteBooking(id: number) {
+    return this.api.delete(`${this.baseUrl}${id}`);
+  }
   getAllBooking(){
     return this.api.getAll(this.baseUrl + 'Booking');
   }

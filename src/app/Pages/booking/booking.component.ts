@@ -3,6 +3,7 @@ import { ErrorDialogComponent } from '../../Components/error-dialog/error-dialog
 import { UserService } from '../../Services/get-url.service';
 import { Booking } from '../../Models/booking';
 import { CommonModule } from '@angular/common';
+import { Rooms } from '../../Models/rooms';
 
 @Component({
   selector: 'app-booking',
@@ -11,16 +12,56 @@ import { CommonModule } from '@angular/common';
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss']
 })
-export class BookingComponent {
-  constructor(private http: UserService){}
+export class BookingComponent{
+  constructor(private userService: UserService) {}
+
   bookingArr: Booking[] = [];
-  ngOnInit(){
-    this.http.getAllBooking().subscribe(resp => {
-      console.log(resp);
-      this.displayBookings(resp);
+  roomsArr: Rooms[] = [];
+  roomImages: { [key: number]: string } = {};
+
+  ngOnInit(): void {
+    this.loadBookings();
+  }
+
+  loadBookings(): void {
+    this.userService.getAllBooking().subscribe({
+      next: (response) => {
+        this.displayBookings(response);
+      },
+      error: (err) => {
+        console.error('Failed to load bookings:', err);
+      }
     });
   }
-  displayBookings(arr: any){
-    this.bookingArr = arr;
+  getRoomImage(roomID: number): void {
+    this.userService.getRoomsById(roomID).subscribe((room: any) => {
+      if (room.images && room.images.length > 0) {
+        this.roomImages[roomID] = room.images[0]?.source;
+      }
+    });
   }
-}  
+
+  displayBookings(data: any): void {
+    this.bookingArr = data;
+    console.log(this.bookingArr);
+
+    this.bookingArr.forEach(booking => {
+      this.getRoomImage(booking.roomID);
+    });
+  }
+
+  cancelBooking(booking: Booking): void {
+    if (confirm(`Are you sure you want to cancel the booking for ${booking.customerName}?`)) {
+      this.userService.deleteBooking(booking.id).subscribe({
+        next: () => {
+          this.bookingArr = this.bookingArr.filter(b => b.id !== booking.id);
+          alert('Booking has been successfully canceled.');
+        },
+        error: (err) => {
+          console.error('Error canceling booking:', err);
+          alert('Failed to cancel the booking.');
+        }
+      });
+    }
+  }
+}

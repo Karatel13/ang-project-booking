@@ -21,4 +21,7 @@ export class ApiService {
   post(url: string, obj: any, options?: { responseType: 'text' }): Observable<string> {
     return this.http.post(url, obj, { responseType: 'text' });
   }
+  delete(url: string) {
+    return this.http.delete(url);
+  }
 }
