@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ErrorDialogComponent } from '../../Components/error-dialog/error-dialog.component';
 import { UserService } from '../../Services/get-url.service';
-import { Booking } from '../../Models/booking';
+import { Cancelbooking } from '../../Models/booking';
 import { CommonModule } from '@angular/common';
 import { Rooms } from '../../Models/rooms';
 
@@ -15,7 +15,7 @@ import { Rooms } from '../../Models/rooms';
 export class BookingComponent{
   constructor(private userService: UserService) {}
 
-  bookingArr: Booking[] = [];
+  bookingArr: Cancelbooking[] = [];
   roomsArr: Rooms[] = [];
   roomImages: { [key: number]: string } = {};
 
@@ -50,12 +50,13 @@ export class BookingComponent{
     });
   }
 
-  cancelBooking(booking: Booking): void {
+  cancelBooking(booking: Cancelbooking): void {
     if (confirm(`Are you sure you want to cancel the booking for ${booking.customerName}?`)) {
       this.userService.deleteBooking(booking.id).subscribe({
         next: () => {
           this.bookingArr = this.bookingArr.filter(b => b.id !== booking.id);
           alert('Booking has been successfully canceled.');
+          console.log('bookingArr after cancel:', this.bookingArr);
         },
         error: (err) => {
           console.error('Error canceling booking:', err);

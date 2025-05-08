@@ -7,13 +7,33 @@
     <p *ngIf="room.available">Available</p>
     <p *ngIf="!room.available">Not available</p>
   
-    <div class="gallery" *ngIf="room.images?.length">
+    <!-- <div class="gallery" *ngIf="room.images?.length">
       <img
         *ngFor="let img of room.images"
         [src]="img.source"
         [alt]="room.name"
         class="gallery-img"
       />
+    </div> -->
+    <div id="roomImagesCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div
+          class="carousel-item"
+          *ngFor="let image of room.images; let i = index"
+          [class.active]="i === 0">
+          <img [src]="image.source" class="d-block w-100" alt="Room image">
+        </div>
+      </div>
+    
+      <button class="carousel-control-prev" type="button" data-bs-target="#roomImagesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+    
+      <button class="carousel-control-next" type="button" data-bs-target="#roomImagesCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
   <app-booking-room-form [roomId]="room.id" *ngIf="room.id"></app-booking-room-form>

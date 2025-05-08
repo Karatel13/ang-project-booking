@@ -18,7 +18,10 @@ export class ApiService {
     return this.http.get(`${url}/${id}`);
   }
 
-  post(url: string, obj: any, options?: { responseType: 'text' }): Observable<string> {
+  post(url: string, obj: any): Observable<any> {
+    return this.http.post<any>(url, obj);
+  }
+  post2(url: string, obj: any, options?: { responseType: 'text' }): Observable<string> {
     return this.http.post(url, obj, { responseType: 'text' });
   }
   delete(url: string) {

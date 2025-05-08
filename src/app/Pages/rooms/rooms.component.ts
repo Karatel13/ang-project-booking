@@ -28,7 +28,7 @@ export class RoomsComponent {
       console.log(this.roomsArr);
     });
   }
-  roomsArr: Rooms []=[]
+  roomsArr: Rooms[]=[]
   displayRooms(arr: any){
     this.roomsArr = arr;
   }
@@ -36,7 +36,7 @@ export class RoomsComponent {
     this.router.navigate(['rooms-details/', roomId]);
   }
   onFiltersChanged(filters: RoomFilter) {
-    this.http.getRoomsWithFilter(filters).subscribe((data: Rooms[]) => {
+    this.http.getRoomsWithFilter(filters).subscribe((data: any) => {
       this.roomsArr = data;
     });
   }

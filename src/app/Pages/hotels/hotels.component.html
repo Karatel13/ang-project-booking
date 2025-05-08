@@ -1,11 +1,19 @@
 <div class="hotelsPage">
-    <div 
-      class="hotel" 
-      *ngFor="let hotel of hotelArr"
-      [attr.data-name]="hotel.name"
-    >
-      <img [src]="hotel.featuredImage" class="card-img-top" alt="..." />
-    </div>
+  <label for="citySelect">Choise City:</label>
+  <select id="citySelect" [(ngModel)]="selectedCity" (change)="onCityChange()">
+    <option value="">All Cities</option>
+    <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+  </select>
+
+  <div 
+    class="hotel" 
+    *ngFor="let hotel of hotelArr"
+  >
+    <img [src]="hotel.featuredImage" class="card-img-top" alt="..." />
+    <h2>{{hotel.name}}</h2>
   </div>
-  <app-error-dialog></app-error-dialog>
+</div>
+
+<app-error-dialog></app-error-dialog>
+
   

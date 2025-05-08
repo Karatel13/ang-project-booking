@@ -13,16 +13,36 @@ import { ErrorDialogComponent } from '../../Components/error-dialog/error-dialog
   styleUrl: './hotels.component.scss'
 })
 export class HotelsComponent {
-  constructor(private https: UserService){}
-  ngOnInit(){
-    this.https.getAllHotels().subscribe( (resp : any) => {
-      console.log(resp)
-      this.displayHotels(resp)
-  
-  })
-}
-hotelArr: Hotels[] =[]
-displayHotels(arr : any){
-  this.hotelArr = arr
-}
+  hotelArr: Hotels[] = [];
+  cities: string[] = [];
+  selectedCity: string = '';
+
+  constructor(private https: UserService) {}
+
+  ngOnInit() {
+    this.loadCities();
+    this.loadAllHotels();
+  }
+
+  loadCities() {
+    this.https.getCities().subscribe((data: any) => {
+      this.cities = data as string[];
+    });
+  }
+
+  loadAllHotels() {
+    this.https.getAllHotels().subscribe(resp => this.displayHotels(resp));
+  }
+
+  displayHotels(arr: any) {
+    this.hotelArr = arr;
+  }
+
+  onCityChange() {
+    if (this.selectedCity) {
+      this.https.getHotelsByCity(this.selectedCity).subscribe(resp => this.displayHotels(resp));
+    } else {
+      this.loadAllHotels();
+    }
+  }
 }

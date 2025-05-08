@@ -6,20 +6,20 @@ export class Rooms {
     available!: boolean;
     maximumGuests?: number;
     roomTypeId?: number;
-  
-    bookedDates?: {
-      id: number;
-      date: string;
-      roomId: number;
-    }[];
-  
-    images?: {
-      id: number;
-      source: string;
-      roomId: number;
-    }[];
+    bookedDates?: BookedDates[];
+    images?:Images[];
   }
 export class RoomType {
   id?: number;
   name!: string;
+}
+export class Images {
+    id!: number;
+    source!: string;
+    roomId!: number;
+}
+export class  BookedDates {
+    id!: number;
+    date!: string;
+    roomId!: number;
 }

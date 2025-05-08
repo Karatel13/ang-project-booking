@@ -30,6 +30,7 @@ export class FilterComponent {
   ngOnInit() {
     this.http.getRoomsType().subscribe((data: any) => {
       this.roomTypes = data;
+      console.log(this.roomTypes);
     });
   }
   applyFilters() {

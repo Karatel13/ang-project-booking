@@ -19,10 +19,9 @@ export class BookingRoomFormComponent{
   bookedDates: string[] = [];
 
   booking: Booking = {
-    id: 0,
     roomID: 0,
-    checkInDate: '',
-    checkOutDate: '',
+    checkInDate: new Date,
+    checkOutDate: new Date,
     totalPrice: 0,
     isConfirmed: true,
     customerName: '',
@@ -70,12 +69,32 @@ export class BookingRoomFormComponent{
 
     this.userService.postBooking(this.booking).subscribe({
       next: (response) => {
-        console.log('Booking successful:', response);
-        alert('Booking successful!');
+   
+        console.log('Response:', response);
       },
-      error: (error) => {
-        console.error('Booking error:', error);
-        alert('Booking failed');
+      error: (err) => {
+        if (err.status === 200 && err.error && err.error.text) {
+   
+          const successMessage = err.error.text;
+          const bookingIdMatch = successMessage.match(/Booking Id (\d+)/);
+          const bookingId = bookingIdMatch ? bookingIdMatch[1] : 'unknown';
+         
+          console.log('Booking successful:', successMessage);
+          alert(`დაჯავშნა წარმატებულია! ჯავშნის ID: ${bookingId}`);
+          localStorage.setItem("bookinId", bookingId)
+        }
+        else if (err.error && err.error.message) {
+          console.error('დაჯავშნის შეცდომა:', err.error.message);
+          alert('დაჯავშნის შეცდომა: ' + err.error.message);
+        }
+        else if (err.message) {
+          console.error('დაჯავშნის შეცდომა:', err);
+          alert('დაჯავშნის შეცდომა: ' + err.message);
+        }
+        else {
+          console.error('Unknown error:', err);
+          alert('მოხდა უცნობი შეცდომა');
+        }
       }
     });
   }
