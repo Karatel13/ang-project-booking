@@ -1,107 +1,51 @@
 .booking-form {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    transition: box-shadow 0.3s ease-in-out;
-  
-    &:hover {
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-  }
-  
-  .booking-form h2 {
-    font-size: 28px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
     text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
   }
-  
-  .booking-form label {
+
+  label {
     display: block;
-    font-size: 16px;
-    font-weight: bold;
-    color: #555;
     margin-bottom: 8px;
-  }
-  
-  .booking-form input[type="text"],
-  .booking-form input[type="number"],
-  .booking-form input[type="datetime-local"],
-  .booking-form input[type="tel"],
-  .booking-form select {
-    width: 100%;
-    padding: 14px;
-    margin: 10px 0 20px 0;
-    border: 1px solid #000000;
-    border-radius: 8px;
     font-size: 16px;
-    color: #333;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-  
-    &:focus {
-      outline: none;
-      border-color: #007bff;
-      background-color: #ffffff;
-    }
   }
-  
-  .booking-form button {
+
+  input {
     width: 100%;
-    padding: 14px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
     background-color: #007bff;
     color: white;
+    font-size: 16px;
     border: none;
     border-radius: 8px;
-    font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  
+    
     &:hover {
       background-color: #0056b3;
-      transform: translateY(-2px);
-    }
-  
-    &:active {
-      background-color: #003f7f;
-      transform: translateY(2px);
     }
   }
-  
-  .error-message {
-    color: #ff4d4d;
-    font-size: 14px;
-    margin-top: 10px;
-    text-align: center;
+}
+
+@media (max-width: 768px) {
+  .booking-form {
+    max-width: 100%;
   }
-  
-  @media (max-width: 600px) {
-    .booking-form {
-      padding: 20px;
-      margin: 20px;
-    }
-  
-    .booking-form h2 {
-      font-size: 24px;
-    }
-  
-    .booking-form input[type="text"],
-    .booking-form input[type="number"],
-    .booking-form input[type="datetime-local"],
-    .booking-form input[type="tel"],
-    .booking-form select {
-      font-size: 14px;
-    }
-  
-    .booking-form button {
-      font-size: 16px;
-    }
-  }
-  
-  
+}

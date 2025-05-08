@@ -1,34 +1,35 @@
 <div class="booking-form">
-    <h2>Book a Room</h2>
-    <form (ngSubmit)="onSubmit()">
-  
-      <div>
-        <label for="checkInDate">Check In Date:</label>
-        <input type="datetime-local" id="checkInDate" [(ngModel)]="booking.checkInDate" name="checkInDate" required />
-      </div>
-  
-      <div>
-        <label for="checkOutDate">Check Out Date:</label>
-        <input type="datetime-local" id="checkOutDate" [(ngModel)]="booking.checkOutDate" name="checkOutDate" required />
-      </div>
-      <div>
-        <label for="customerName">Customer Name:</label>
-        <input type="text" id="customerName" [(ngModel)]="booking.customerName" name="customerName" required />
-      </div>
-  
-      <div>
-        <label for="customerId">Customer ID:</label>
-        <input type="text" id="customerId" [(ngModel)]="booking.customerId" name="customerId" required />
-      </div>
-  
-      <div>
-        <label for="customerPhone">Customer Phone:</label>
-        <input type="text" id="customerPhone" [(ngModel)]="booking.customerPhone" name="customerPhone" required />
-      </div>
-  
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+  <h2>Book a Room</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="checkInDate">Check In Date:</label>
+      <input type="datetime-local" id="checkInDate" [(ngModel)]="booking.checkInDate" name="checkInDate" required />
+    </div>
+
+    <div>
+      <label for="checkOutDate">Check Out Date:</label>
+      <input type="datetime-local" id="checkOutDate" [(ngModel)]="booking.checkOutDate" name="checkOutDate" required />
+    </div>
+
+    <div>
+      <label for="customerName">Customer Name:</label>
+      <input type="text" id="customerName" [(ngModel)]="booking.customerName" name="customerName" required />
+    </div>
+
+    <div>
+      <label for="customerId">Customer ID:</label>
+      <input type="text" id="customerId" [(ngModel)]="booking.customerId" name="customerId" required />
+    </div>
+
+    <div>
+      <label for="customerPhone">Customer Phone:</label>
+      <input type="text" id="customerPhone" [(ngModel)]="booking.customerPhone" name="customerPhone" required />
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
   
   
   

@@ -14,10 +14,9 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  getById(url: string, id: number) {
-    return this.http.get(`${url}/${id}`);
+  getById<T>(url: string, id: number): Observable<T> {
+    return this.http.get<T>(`${url}/${id}`);
   }
-
   post(url: string, obj: any): Observable<any> {
     return this.http.post<any>(url, obj);
   }

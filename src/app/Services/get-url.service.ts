@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
 import { Booking } from '../Models/booking';
+import { Hotels } from '../Models/hotels';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,8 @@ export class UserService {
   getAllRooms(){
     return this.api.getAll(this.baseUrl +'Rooms/GetAll')
   }
-  getHotelById(id: number) {
-    return this.api.getById(this.baseUrl + 'Hotels/GetHotel', id);
+  getHotelById(id: number): Observable<Hotels> {
+    return this.api.getById<Hotels>(this.baseUrl + 'Hotels/GetHotel', id);
   }
   getCities(){
     return this.api.getAll(this.baseUrl + 'Hotels/GetCities')

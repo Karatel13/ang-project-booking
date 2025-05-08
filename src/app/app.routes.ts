@@ -28,7 +28,7 @@ export const routes: Routes = [
     },
     { 
         path: 'hotels-details/:id',
-        loadComponent:() => import ('./Pages/hotels/hotels-details/hotels-details.component').then(m => m.HotelsDetailsComponent)
+        loadComponent:() => import ('./Pages/hotels/hotels-details/hotels-details.component').then(m => m.HotelDetailsComponent)
     },
     {
     path: 'booking',

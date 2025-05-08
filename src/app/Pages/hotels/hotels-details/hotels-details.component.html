@@ -1,1 +1,28 @@
-<p>hotels-details works!</p>
+<div *ngIf="hotel" class="hotel-details">
+
+    <div class="hotel-header">
+      <img [src]="hotel.featuredImage" alt="Hotel Image" class="hotel-image" />
+      <div class="hotel-info">
+        <h2>{{ hotel.name }}</h2>
+        <p>{{ hotel.address }}</p>
+        <p>{{ hotel.city }}</p>
+      </div>
+    </div>
+
+    <div class="room-section">
+      <h3>Rooms</h3>
+      <div class="rooms-container">
+        <div *ngFor="let room of hotel.rooms" class="room-card" (click)="onRoomClick(room.id)">
+          <img [src]="room.images[0].source" alt="Room Image" class="room-image" />
+          <div class="room-info">
+            <h4>{{ room.name }}</h4>
+            <p>Max guests: {{ room.maximumGuests }}</p>
+            <p class="price">Price per night: {{ room.pricePerNight }} USD</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  

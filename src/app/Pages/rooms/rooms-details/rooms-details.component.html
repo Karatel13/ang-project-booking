@@ -1,43 +1,59 @@
-<div class="room-details-page">
+<div class="room-details">
+  <h1>{{ room.name }}</h1>
+  <p>{{ room.pricePerNight }} $ / night</p>
+  <p>Max guests: {{ room.maximumGuests }}</p>
+  <p *ngIf="room.available">Available</p>
+  <p *ngIf="!room.available">Not available</p>
 
-  <div class="room-details">
-    <h1>{{ room.name }}</h1>
-    <p>{{ room.pricePerNight }} $ / night</p>
-    <p>Max guests: {{ room.maximumGuests }}</p>
-    <p *ngIf="room.available">Available</p>
-    <p *ngIf="!room.available">Not available</p>
-  
-    <!-- <div class="gallery" *ngIf="room.images?.length">
-      <img
-        *ngFor="let img of room.images"
-        [src]="img.source"
-        [alt]="room.name"
-        class="gallery-img"
-      />
-    </div> -->
-    <div id="roomImagesCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div
-          class="carousel-item"
-          *ngFor="let image of room.images; let i = index"
-          [class.active]="i === 0">
-          <img [src]="image.source" class="d-block w-100" alt="Room image">
-        </div>
+  <div id="roomImagesCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let image of room.images; let i = index" [class.active]="i === 0">
+        <img [src]="image.source" class="d-block w-100" alt="Room image">
       </div>
-    
-      <button class="carousel-control-prev" type="button" data-bs-target="#roomImagesCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-    
-      <button class="carousel-control-next" type="button" data-bs-target="#roomImagesCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#roomImagesCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#roomImagesCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <app-booking-room-form [roomId]="room.id" *ngIf="room.id"></app-booking-room-form>
+
+
+  <div class="room-overview">
+    <h2>Room Overview</h2>
+    <table>
+      <tr>
+        <td><i class="fas fa-bed"></i> <strong>Double Bed</strong></td>
+        <td><i class="fas fa-wifi"></i> Free Internet</td>
+        <td><i class="fas fa-newspaper"></i> Free Newspaper</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-ruler-combined"></i> 60 square meter</td>
+        <td><i class="fas fa-sun"></i> Beach view</td>
+        <td><i class="fas fa-users"></i> 2 persons</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-bacon"></i> Breakfast included</td>
+        <td><i class="fas fa-balcony"></i> Private Balcony</td>
+        <td><i class="fas fa-tv"></i> Flat Screen TV</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-hot-tub"></i> Jacuzzi</td>
+        <td colspan="2" class="description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ligula nibh, cursus id euismod non, scelerisque nec nibh. Nam semper, ligula a rhoncus fermentum, libero lacus vulputate felis, id auctor mauris urna quis diam.
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
+
+
+  <app-booking-room-form [roomId]="room.id" *ngIf="room.id"></app-booking-room-form>
 
 
 

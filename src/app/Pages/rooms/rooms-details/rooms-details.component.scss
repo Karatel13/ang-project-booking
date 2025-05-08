@@ -1,52 +1,95 @@
-.room-details-page {
-  display: flex;
-  align-items: center;
-  padding: 40px;
-  justify-content: space-around;
-  .room-details {
-    background: linear-gradient(to right, #1e3a8a, #2748a8);
-    max-width: 800px;
-    width: 100%;
-    border-radius: 20px;
-    padding: 30px;
-    color: #ffffff;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    text-align: center;
-  
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
+.room-details {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #555;
+  }
+
+  .carousel {
+    margin-top: 20px;
+    border-radius: 8px;
+
+    .carousel-inner img {
+      border-radius: 8px;
+      max-height: 400px;
+      object-fit: cover;
     }
-  
-    p {
-      font-size: 16px;
-      margin: 0;
-      line-height: 1.4;
+
+    .carousel-control-prev, .carousel-control-next {
+      filter: invert(100%);
     }
-  
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin: 20px 0;
-  
-      .gallery-img {
-        width: 280px;
-        height: 180px;
-        object-fit: cover;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease;
-  
-        &:hover {
-          transform: scale(1.03);
-        }
+  }
+
+  .room-overview {
+    margin-top: 30px;
+    text-align: left;
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+
+      td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      td i {
+        font-size: 20px;
+        color: #007bff;
+      }
+
+      td:first-child {
+        font-weight: bold;
+      }
+
+      td.description {
+        font-size: 14px;
+        color: #666;
+        padding-left: 50px;
+        text-align: left;
+        line-height: 1.6;
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .room-details {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .room-overview table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .description {
+    font-size: 12px;
   }
 }

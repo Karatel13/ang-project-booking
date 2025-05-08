@@ -8,6 +8,7 @@
   <div 
     class="hotel" 
     *ngFor="let hotel of hotelArr"
+    (click)="onHotelClick(hotel.id)"
   >
     <img [src]="hotel.featuredImage" class="card-img-top" alt="..." />
     <h2>{{hotel.name}}</h2>
